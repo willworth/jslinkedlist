@@ -12,6 +12,9 @@ class LinkedList {
     this.head = newNode;
     this.length++;
   }
+
+  //A common pitfall for novice developers is to put a comma between class methods,
+  // which would result in a syntax error.
 }
 
 // this could just be a js object but is a class here for consistency

@@ -28,6 +28,39 @@ class LinkedList {
     }
     return current;
   }
+
+  insertAtIndex(index, value) {
+    if (index === 0) return this.insertAtHead(value);
+    const prev = this.getByIndex(index - 1);
+    if (prev == null) return null;
+
+    prev.next = new LinkedListNode(value, prev.next);
+    this.length++;
+  }
+
+  removeHead() {
+    this.head = this.head.next;
+    this.length--;
+  }
+
+  removeAtIndex(index) {
+    if (index === 0) return this.removeHead();
+    const prev = this.getByIndex(index - 1);
+    if (prev == null) return null;
+
+    prev.next = prev.next.next;
+    this.length--;
+  }
+
+  print() {
+    let output = "";
+    let current = this.head;
+    while (current) {
+      output = `${output}${current.value} -> `;
+      current = current.next;
+    }
+    console.log(`${output}null`);
+  }
 }
 
 // this could just be a js object but is a class here for consistency
